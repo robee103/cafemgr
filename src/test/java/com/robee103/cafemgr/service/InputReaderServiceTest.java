@@ -9,25 +9,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class InputReaderServiceTest {
 
-  private InputReaderService inputReaderService = null;
+  private InputReaderService orderReader = null;
 
   @BeforeEach
   void initOrder() {
-    inputReaderService = new InputReaderService();
+    orderReader = new InputReaderService();
   }
 
   @Test
   @DisplayName("Test: Invalid Input Order")
   void invalidCustomerOrders() {
     String orderStr = "1,2,4,8";
-    Assertions.assertThrows(RuntimeException.class, () -> inputReaderService.getOrderItems(orderStr));
-    Assertions.assertNull(inputReaderService.getOrderItems(""));
+    Assertions.assertThrows(RuntimeException.class, () -> orderReader.parseOrderItems(orderStr));
+    Assertions.assertNull(orderReader.parseOrderItems(""));
   }
 
   @Test
   @DisplayName("Test: Valid Input Order")
   void validCustomerOrders() {
     String orderStr = "1,2,4,7";
-    Assertions.assertNotNull(inputReaderService.getOrderItems(orderStr));
+    Assertions.assertNotNull(orderReader.parseOrderItems(orderStr));
   }
 }

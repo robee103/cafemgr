@@ -29,7 +29,7 @@ public class OrderHandlerServiceTest {
   @DisplayName("Test: No Promo Confirm Total")
   public void checkTotalAmount(){
     String orderStr = "1,4,7";
-    List<Product> products = inputReaderService.getOrderItems(orderStr);
+    List<Product> products = inputReaderService.parseOrderItems(orderStr);
     products.forEach(orderHandlerService::addProduct);
     orderHandlerService.processOrder();
     assertEquals((ProductStore.BACON_ROLL.getPrice() +
@@ -42,7 +42,7 @@ public class OrderHandlerServiceTest {
   @DisplayName("Test: Apply Bonus Program For Extra Free - EXTRA_MILK is Free")
   void testExtraFreePromo() {
     String orderStr = "1,4,7";
-    List<Product> products = inputReaderService.getOrderItems(orderStr);
+    List<Product> products = inputReaderService.parseOrderItems(orderStr);
     products.forEach(orderHandlerService::addProduct);
     orderHandlerService.processOrder(stampCard);
     assertEquals((ProductStore.BACON_ROLL.getPrice() + ProductStore.MEDIUM_COFFEE.getPrice()),
@@ -54,7 +54,7 @@ public class OrderHandlerServiceTest {
   void testExtraBeveragePromo() {
     String orderStr = "0,0,1,1,2,4";
 
-    List<Product> products = inputReaderService.getOrderItems(orderStr);
+    List<Product> products = inputReaderService.parseOrderItems(orderStr);
     products.forEach(orderHandlerService::addProduct);
     orderHandlerService.processOrder(stampCard);
 
