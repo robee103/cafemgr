@@ -9,7 +9,7 @@ public enum ProductStore {
   ORANGE_JUICE("Orange Juice",3.95D, ProductType.BEVERAGE),
   EXTRA_MILK("Extra Milk", 0.30D, ProductType.EXTRA),
   EXTRA_FOAM_MILK("Extra Foam", 0.50D, ProductType.EXTRA),
-  EXTRA_ROAST_COFFEE("Extra Roast Coffee", 0.50D, ProductType.EXTRA),
+  EXTRA_ROAST_COFFEE("Extra Roast Coffee", 0.90D, ProductType.EXTRA),
   BACON_ROLL("Bacon Roll",4.50D, ProductType.SNACK);
 
   private final String label;
