@@ -11,7 +11,7 @@ Promos are applied based on stamp card with 2 criteria:
 
 ## Requirements
 For building and running the application you need:
-- JDK 8
+- JDK 11
 - Gradle
 
 ## Tests
