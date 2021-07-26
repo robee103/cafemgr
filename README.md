@@ -27,12 +27,13 @@ For building and running the application you need:
   ```
 ## Approach / assumptions
  * User input is from the command line.
- * Inputs are the numeric values of menu item to keep it simple.
+ * Inputs are the numeric values of menu item with price to keep it simple.
  * The stamp is checked against the Y/N input provided.
  * No customer information is stored, and each order is checked against a new stamp card.
  * The order then updates the stamp card against the promo offers.
  * Snack+Beverage Free Promo is applied to 1st EXTRA ordered in the list.
  * 5th Free Beverage PROMO is applied to 5th BEVERAGE irrespective of cost.
+ * Discounts are printed with price of 0 to simplify display.
  
  ## Test Cases Covered in JUnit
   * User inputs for both valid and invalid cases.
@@ -69,7 +70,7 @@ Output:
     Bacon Roll                  1        4.50 CHF
     ---------------------------------------------
                       DISCOUNTS
-    Extra Foam                  1       -0.50 CHF
+    Extra Foam                  1        0.00 CHF
     ---------------------------------------------
     TOTAL                                7.50 CHF
     ---------------------------------------------

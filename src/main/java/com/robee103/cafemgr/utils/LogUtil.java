@@ -1,9 +1,5 @@
 package com.robee103.cafemgr.utils;
 
-import java.util.Arrays;
-import java.util.logging.LogRecord;
-import java.util.logging.SimpleFormatter;
-
 public class LogUtil {
   public LogUtil() {
   }

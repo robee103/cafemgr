@@ -1,16 +1,15 @@
 package com.robee103.cafemgr.service;
 
-import static java.lang.String.format;
-
-import com.robee103.cafemgr.domain.PurchaseItem;
 import com.robee103.cafemgr.domain.Product;
+import com.robee103.cafemgr.domain.PurchaseItem;
 import com.robee103.cafemgr.utils.CafeConstants;
 import com.robee103.cafemgr.utils.LogUtil;
 import com.robee103.cafemgr.utils.ProductStore;
 
-import java.util.Arrays;
 import java.util.Map;
 import java.util.stream.IntStream;
+
+import static java.lang.String.format;
 
 public class PrinterService {
 
@@ -24,7 +23,7 @@ public class PrinterService {
     StringBuilder sb = new StringBuilder(separatorString);
     IntStream.range(0, products.length)
         .forEach(idx ->
-            sb.append(format("%d - %s\n", idx, products[idx].getLabel()))
+            sb.append(format("%-2d - %-20s %5.2f CHF\n", idx, products[idx].getLabel(), products[idx].getPrice()))
         );
     sb.append(separatorString);
     LogUtil.info(sb.toString());
@@ -58,7 +57,7 @@ public class PrinterService {
         if(item.getDiscounted()){
           isDiscountApplied = true;
           discountProductStrBuilder.append(
-              format(ENTRY_FORMATTER, currProduct.getName(), productEntry.getValue(), currProduct.getPrice()*-1,CafeConstants.CURRENCY)
+              format(ENTRY_FORMATTER, currProduct.getName(), productEntry.getValue(), 0D,CafeConstants.CURRENCY)
           );
         }
         else {
